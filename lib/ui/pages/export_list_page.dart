@@ -76,7 +76,8 @@ class _ExportScreenState extends State<ExportScreen> {
               monthTotals[month]?.toStringAsFixed(2).replaceAll(".", ",") ??
                   '0,00';
           return ListTile(
-            title: Text('$month - Total: R\$ $total'),
+            title: Text(month),
+            // subtitle: Text('Total: R\$ $total'),
             trailing: ElevatedButton(
               onPressed: () {
                 _exportMonth(month);

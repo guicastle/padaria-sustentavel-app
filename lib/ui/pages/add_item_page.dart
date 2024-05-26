@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
 import 'package:image_picker/image_picker.dart';
@@ -7,14 +6,14 @@ import 'dart:convert';
 
 import '../utils/colors_util.dart';
 
-class ImageTextPage extends StatefulWidget {
-  ImageTextPage({super.key});
+class AddItemPage extends StatefulWidget {
+  const AddItemPage({super.key});
 
   @override
-  State<ImageTextPage> createState() => _ImageTextPageState();
+  State<AddItemPage> createState() => _AddItemPageState();
 }
 
-class _ImageTextPageState extends State<ImageTextPage> {
+class _AddItemPageState extends State<AddItemPage> {
   final TextEditingController _titleController = TextEditingController();
   final TextEditingController _totalController = TextEditingController();
   final TextEditingController _dateController = TextEditingController();

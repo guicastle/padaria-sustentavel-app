@@ -3,7 +3,7 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:padaria_sustentavel_app/ui/pages/export_list.dart';
+import 'package:padaria_sustentavel_app/ui/pages/export_list_page.dart';
 import 'package:padaria_sustentavel_app/ui/pages/home_page.dart';
 import 'package:padaria_sustentavel_app/ui/utils/assets_util.dart';
 import 'package:padaria_sustentavel_app/ui/utils/colors_util.dart';
