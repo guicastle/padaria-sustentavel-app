@@ -44,11 +44,40 @@ class _ProductListScreenState extends State<ProductListScreen> {
     return total;
   }
 
+  Future<void> _deleteProduct(int index) async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    final String key = 'data_${widget.month}';
+    products.removeAt(index);
+    final updatedProductStrings =
+        products.map((product) => jsonEncode(product)).toList();
+    await prefs.setStringList(key, updatedProductStrings);
+    setState(() {
+      totalValue = _calculateTotalValue(products);
+    });
+  }
+
+  Future<void> _deleteAllProducts() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    final String key = 'data_${widget.month}';
+    await prefs.remove(key);
+    setState(() {
+      products.clear();
+      totalValue = 0.0;
+    });
+    Navigator.pop(context);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Produtos de ${widget.month}'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.delete_forever),
+            onPressed: _deleteAllProducts,
+          ),
+        ],
       ),
       body: Column(
         children: [
@@ -68,6 +97,12 @@ class _ProductListScreenState extends State<ProductListScreen> {
                   title: Text(product['title'] ?? 'Sem título'),
                   subtitle: Text(
                     'Total: R\$ ${product['total']}, Data: ${product['date']}',
+                  ),
+                  trailing: IconButton(
+                    icon: const Icon(Icons.delete, color: Colors.red),
+                    onPressed: () {
+                      _deleteProduct(index);
+                    },
                   ),
                 );
               },

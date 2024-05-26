@@ -135,14 +135,6 @@ class _ImageTextPageState extends State<ImageTextPage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               TextField(
-                controller: _titleController,
-                decoration: const InputDecoration(labelText: 'Título'),
-              ),
-              TextField(
-                controller: _totalController,
-                decoration: const InputDecoration(labelText: 'Total'),
-              ),
-              TextField(
                 controller: _dateController,
                 decoration: const InputDecoration(labelText: 'Data'),
                 readOnly: true,
@@ -160,6 +152,14 @@ class _ImageTextPageState extends State<ImageTextPage> {
                     });
                   }
                 },
+              ),
+              TextField(
+                controller: _titleController,
+                decoration: const InputDecoration(labelText: 'Título'),
+              ),
+              TextField(
+                controller: _totalController,
+                decoration: const InputDecoration(labelText: 'Total'),
               ),
               const SizedBox(height: 20),
               ElevatedButton.icon(

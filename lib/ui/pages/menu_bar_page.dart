@@ -3,6 +3,7 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:padaria_sustentavel_app/ui/pages/export_list.dart';
 import 'package:padaria_sustentavel_app/ui/pages/home_page.dart';
 import 'package:padaria_sustentavel_app/ui/utils/assets_util.dart';
 import 'package:padaria_sustentavel_app/ui/utils/colors_util.dart';
@@ -15,7 +16,7 @@ class MenuBar extends StatelessWidget {
     // List pages
     List<Widget> pages = [
       const HomeScreen(),
-      const Scaffold(),
+      const ExportScreen(),
     ];
     final navC = Get.put(NavbarController());
     return Obx(
@@ -28,10 +29,12 @@ class MenuBar extends StatelessWidget {
             Get.toNamed("/image");
           },
           elevation: 4.0,
-          child: Container(
-            margin: const EdgeInsets.all(15.0),
-            child: SvgPicture.asset(
-              AssetIcons.camera,
+          child: const SizedBox(
+            height: 42,
+            width: 42,
+            // margin: const EdgeInsets.all(15.0),
+            child: Icon(
+              Icons.add,
               color: Colors.white,
             ),
           ),
@@ -63,9 +66,9 @@ class MenuBar extends StatelessWidget {
                     ),
                   ),
                   BottomNavigationBarItem(
-                    label: "Produtos",
+                    label: "Controle",
                     icon: SvgPicture.asset(
-                      AssetIcons.edit,
+                      AssetIcons.checkGrey,
                       color: navC.index.value == 1
                           ? AppColors.primary
                           : AppColors.secondaryText,
