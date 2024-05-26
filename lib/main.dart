@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:padaria_sustentavel_app/pages/code_bar_page.dart';
+import 'package:flutter/services.dart';
+import 'package:get/get.dart';
+import 'package:padaria_sustentavel_app/routes/routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,14 +12,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+      statusBarColor: Colors.white,
+      statusBarIconBrightness: Brightness.dark,
+    ));
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+        fontFamily: 'Inter',
       ),
-      home: const QRCodePage(),
+      defaultTransition: Transition.native,
+      initialRoute: "/",
+      getPages: Routes.pages,
     );
   }
 }

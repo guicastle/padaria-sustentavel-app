@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
 import 'package:image_picker/image_picker.dart';
 
-class QRCodePage extends StatefulWidget {
-  const QRCodePage({super.key});
+class ImageTextPage extends StatefulWidget {
+  const ImageTextPage({super.key});
 
   @override
-  State<QRCodePage> createState() => _QRCodePageState();
+  State<ImageTextPage> createState() => _ImageTextPageState();
 }
 
-class _QRCodePageState extends State<QRCodePage> {
+class _ImageTextPageState extends State<ImageTextPage> {
   String title = '';
   String total = '';
   final ImagePicker _picker = ImagePicker();
